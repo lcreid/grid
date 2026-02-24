@@ -1,11 +1,16 @@
 class GridController < ApplicationController
-  def edit; end
+  Slot = Struct.new(:row, :col, :span)
+
+  def edit
+    @grid = grid
+  end
 
   def grid
-    helpers.tag.div(class: "grid") do
-      Enumerator.product(0.upto(2), 0.upto(9)).map do |row_num, col_num|
-        helpers.tag.div("#{row_num}-#{col_num}", class: "grid-cell")
-      end.join
+    Enumerator.product(0.upto(2), 0.upto(19)).reduce({}) do |acc, (row, col)|
+      next acc if row == 1 && [ 9, 10, 11 ].include?(col)
+
+      acc["#{row}-#{col}"] = Slot.new(row:, col:, span: row == 1 && col == 8 ? 4 : 1)
+      acc
     end
   end
   helper_method :grid
