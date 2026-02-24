@@ -1,0 +1,15 @@
+.grid {
+  background-color: black;
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(20, 1fr);
+  padding: 1px;
+  overflow: scroll;
+  user-select: none;
+}
+
+.grid-cell {
+  background-color: white;
+  min-width: 3rem;
+  text-align: center;
+}

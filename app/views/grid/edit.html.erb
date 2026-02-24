@@ -1,0 +1,7 @@
+<div class="grid">
+  <% Enumerator.product(0.upto(2), 0.upto(19)).map do |row_num, col_num| %>
+  <div class="grid-cell">
+    <%= "#{row_num}-#{col_num}" %>
+  </div>
+  <% end %>
+</div>
