@@ -1,6 +1,7 @@
+<div data-controller="fuckyoucunt"></div>
 <div class="grid">
   <% @grid.values.each do |slot| %>
-  <div class="grid-cell" style="grid-column: span <%= slot.span %>;">
+  <div class="grid-cell" data-controller="grid-cell" data-action="click->grid-cell#click" style="grid-column: span <%= slot.span %>;" id="<%= slot.id %>">
     <%= "#{slot.row}-#{slot.col}" %>
   </div>
   <% end %>
